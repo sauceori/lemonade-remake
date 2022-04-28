@@ -13,8 +13,8 @@ def player():
         #Number of signs made by the player
         self.num_signs = 0
 
-def intro():
-    """Displays the introductory graphic."""
+def title():
+    """Displays the title graphic."""
     #TODO: This could look better, replace when convenient
     print("""
         ;LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL;LLLLL
@@ -34,20 +34,20 @@ def intro():
         LLLLLLLL;;;;;LL;LL;;;;L;LL;L;;;;LLLLLLLL
         """)
 
-def title():
-    """Displays title message, choose new or resume game."""
+def intro():
+    """Displays introductory message, choose new or resume game."""
     pass
 
 def main():
     """Main method for the game loop."""
 
-    #Display the introductory graphic
-    intro()
-
-    #Display the title message
+    #Display the title graphic
     title()
 
-    #Initialize game state variables.
+    #Display the introductory message
+    intro()
+
+    #Initialize game state variables
     #Number of players playing Lemonade Stand
     num_players = 1
     #Cost of lemonade per glass, in cents
