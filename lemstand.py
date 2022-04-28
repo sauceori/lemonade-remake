@@ -1,5 +1,21 @@
+def player():
+    """Represents a single player."""
+    def __init__(self):
+        """Constructor for a player."""
+        #Cash on hand, in dollars
+        self.assets = 0
+        #True if stand ruined by Thunderstorm, else False
+        self.storm_ruined = False
+        #Number of glasses lemonade made by the player
+        self.glasses_made = 0
+        #Price the player is charging for their lemonade, in dollars
+        self.price_charged = 0
+        #Number of signs made by the player
+        self.num_signs = 0
+
 def intro():
     """Displays the introductory graphic."""
+    #TODO: This could look better, replace when convenient
     print("""
         ;LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL;LLLLL
         ;LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL;LLLLL
@@ -30,6 +46,20 @@ def main():
 
     #Display the title message
     title()
+
+    #Initialize game state variables.
+    #Number of players playing Lemonade Stand
+    num_players = 1
+    #Cost of lemonade per glass, in cents
+    cost_lemonade = 0.5
+    #Const of an advertising sign, in cents
+    cost_sign = 0.15
+    #Contains player objects
+    players = []
+
+    #Append number of players to list
+    for x in range(num_players):
+        players.append(player())
 
 #Start the game loop
 main()
