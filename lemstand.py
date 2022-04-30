@@ -1,4 +1,4 @@
-def gamestate():
+class gamestate():
     """Represents a game of Lemonade Stand."""
     def __init__(self):
         """Constructor to initialize game state variables."""
@@ -17,7 +17,7 @@ def gamestate():
         for x in range(num_players):
             self.players.append(player())
 
-    def intro():
+    def intro(self):
         """Displays introductory message, choose new or resume game."""
         print("""
             Hi! Welcome to Lemonsville, California!
@@ -37,9 +37,13 @@ def gamestate():
             Type your answer and hit return ==> """)
 
         #How many players will be playing?
-        print("""
-            How many people will be playing ==>""")
-
+        while True:
+            try:
+                self.num_players = int(input("""
+                    How many people will be playing ==> """))
+                break
+            except ValueError:
+                pass
 
 def player():
     """Represents a single player."""
@@ -83,11 +87,11 @@ def main():
     #Display the title graphic
     title()
 
-    #Display the introductory message
-    intro()
-
     #Create a game object
     game = gamestate()
+
+    #Display the introductory message
+    game.intro()
 
 #Start the game loop
 main()
