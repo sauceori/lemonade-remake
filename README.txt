@@ -17,6 +17,7 @@ Lemonade Stand Sequential Program Description
 3. Start of the Game
 4. Display the Title Page
     Is the player starting a new game, or continuing?
+        If the player is continuing
     If new, how many people are playing the game?
 5. Display tutorial screen
     Press space to continue or esc to end

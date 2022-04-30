@@ -1,3 +1,8 @@
+"""Global constants."""
+#Describes acceptable affirmative and negative responses in the lower case
+AFFIRMATIVE = ["yes", "y"]
+NEGATIVE    = ["no", "n"]
+
 class gamestate():
     """Represents a game of Lemonade Stand."""
     def __init__(self):
@@ -36,10 +41,22 @@ class gamestate():
             make the most money, you're the winner!!
             """)
 
-        #TODO: Is the player starting a new game, or continuing?
-        print("""
-            Are you starting a new game? (yes or no)
-            Type your answer and hit return ==> """)
+        #Becomes true if the game is being continued
+        continuing = False
+
+        #Is the player starting a new game, or continuing?
+        while True:
+            try:
+                in_str = input("""
+                    Are you starting a new game? (yes or no)
+                    Type your answer and hit return ==> """)
+                if in_str.lower() in NEGATIVE:
+                    continuing = True
+                    break
+                elif in_str.lower() in AFFIRMATIVE:
+                    break
+            except ValueError:
+                pass
 
         #How many players will be playing?
         while True:
@@ -50,6 +67,8 @@ class gamestate():
                     break
             except ValueError:
                 pass
+
+        #TODO: Have returning players reenter their data
 
 def player():
     """Represents a single player."""
