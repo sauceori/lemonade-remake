@@ -1,3 +1,46 @@
+def gamestate():
+    """Represents a game of Lemonade Stand."""
+    def __init__(self):
+        """Constructor to initialize game state variables."""
+        #Number of players playing Lemonade Stand
+        self.num_players = 1
+        #Cost of lemonade per glass, in cents
+        self.cost_lemonade = 0.5
+        #Const of an advertising sign, in cents
+        self.cost_sign = 0.15
+        #Contains player objects
+        self.players = []
+
+    def init_players(self, num_players):
+        """Add player objects to the list of players."""
+        #Append number of players to list
+        for x in range(num_players):
+            self.players.append(player())
+
+    def intro():
+        """Displays introductory message, choose new or resume game."""
+        print("""
+            Hi! Welcome to Lemonsville, California!
+
+            In this small town, tou are in charge of
+            running your own lemonade stand. You can
+            compete with as many other people as you
+            wish, but how much profit you make is up
+            to you (the other stands' sales will not
+            affect your business in any way). If you
+            make the most money, you're the winner!!
+            """)
+
+        #TODO: Is the player starting a new game, or continuing?
+        print("""
+            Are you starting a new game? (yes or no)
+            Type your answer and hit return ==> """)
+
+        #How many players will be playing?
+        print("""
+            How many people will be playing ==>""")
+
+
 def player():
     """Represents a single player."""
     def __init__(self):
@@ -34,28 +77,6 @@ def title():
         LLLLLLLL;;;;;LL;LL;;;;L;LL;L;;;;LLLLLLLL
         """)
 
-def intro():
-    """Displays introductory message, choose new or resume game."""
-    print("""
-        Hi! Welcome to Lemonsville, California!
-
-        In this small town, tou are in charge of
-        running your own lemonade stand. You can
-        compete with as many other people as you
-        wish, but how much profit you make is up
-        to you (the other stands' sales will not
-        affect your business in any way). If you
-        make the most money, you're the winner!!
-        """)
-
-    #TODO: Is the player starting a new game, or continuing?
-    print("""
-        Are you starting a new game? (yes or no)
-        Type your answer and hit return ==> """)
-
-    #How many players will be playing?
-    print("How many people will be playing ==>")
-
 def main():
     """Main method for the game loop."""
 
@@ -65,19 +86,8 @@ def main():
     #Display the introductory message
     intro()
 
-    #Initialize game state variables
-    #Number of players playing Lemonade Stand
-    num_players = 1
-    #Cost of lemonade per glass, in cents
-    cost_lemonade = 0.5
-    #Const of an advertising sign, in cents
-    cost_sign = 0.15
-    #Contains player objects
-    players = []
-
-    #Append number of players to list
-    for x in range(num_players):
-        players.append(player())
+    #Create a game object
+    game = gamestate()
 
 #Start the game loop
 main()
