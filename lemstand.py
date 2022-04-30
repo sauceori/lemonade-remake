@@ -36,6 +36,7 @@ class gamestate():
 
     def intro(self):
         """Displays introductory message, choose new or resume game."""
+        #TODO: Big function, should probably be broken up
         print("""
             Hi! Welcome to Lemonsville, California!
 
@@ -132,6 +133,30 @@ def title():
                     S  S  S  S S  S S  S
                 SSSSS  S  SSSS S  S SSSS
         """)
+
+def tutorial():
+    """Displays a brief tutorial before the game begins."""
+    print("""
+        To manage your lemonade stand, you will
+        need to make these decisions every day:
+
+        1. How many glasses of lemonade to make
+           (only one batch is made each morning)
+
+        2. How Many Advertising Signs to make
+           (the signs cost fifteen cents each)
+
+        3. What price to charge for each glass
+
+        You will begin with $2.00 cash (assets).
+        Because your mother gave you some sugar,
+        your cost to make lemonade is two cents
+        a glass (this may change in the future).
+
+         Press space to continue, esc to end...""")
+
+    #Space to continue, esc to end
+
 
 def main():
     """Main method for the game loop."""

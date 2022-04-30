@@ -7,6 +7,8 @@ a teaching tool for students to learn about the basics of business
 management, this remake aims to have a similar educational slant for
 aspiring programmers by adhering well to Python conventions and providing
 ample documentation.
+    This project could later be turned into a graphical application using
+PyGame.
 
 Authors
 Ethan Hopkins
