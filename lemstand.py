@@ -36,7 +36,25 @@ def title():
 
 def intro():
     """Displays introductory message, choose new or resume game."""
-    pass
+    print("""
+        Hi! Welcome to Lemonsville, California!
+
+        In this small town, tou are in charge of
+        running your own lemonade stand. You can
+        compete with as many other people as you
+        wish, but how much profit you make is up
+        to you (the other stands' sales will not
+        affect your business in any way). If you
+        make the most money, you're the winner!!
+        """)
+
+    #TODO: Is the player starting a new game, or continuing?
+    print("""
+        Are you starting a new game? (yes or no)
+        Type your answer and hit return ==> """)
+
+    #How many players will be playing?
+    print("How many people will be playing ==>")
 
 def main():
     """Main method for the game loop."""
