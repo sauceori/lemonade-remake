@@ -1,3 +1,5 @@
+#Imports
+
 """Global constants."""
 #Describes acceptable affirmative and negative responses in the lower case
 AFFIRMATIVE = ["yes", "y"]
@@ -136,27 +138,33 @@ def title():
 
 def tutorial():
     """Displays a brief tutorial before the game begins."""
-    print("""
-        To manage your lemonade stand, you will
-        need to make these decisions every day:
+    #Yes to continue, no to end
+    while True:
+        try:
+            in_str = input("""
+                To manage your lemonade stand, you will
+                need to make these decisions every day:
 
-        1. How many glasses of lemonade to make
-           (only one batch is made each morning)
+                1. How many glasses of lemonade to make
+                (only one batch is made each morning)
 
-        2. How Many Advertising Signs to make
-           (the signs cost fifteen cents each)
+                2. How Many Advertising Signs to make
+                (the signs cost fifteen cents each)
 
-        3. What price to charge for each glass
+                3. What price to charge for each glass
 
-        You will begin with $2.00 cash (assets).
-        Because your mother gave you some sugar,
-        your cost to make lemonade is two cents
-        a glass (this may change in the future).
+                You will begin with $2.00 cash (assets).
+                Because your mother gave you some sugar,
+                your cost to make lemonade is two cents
+                a glass (this may change in the future).
 
-         Press space to continue, esc to end...""")
-
-    #Space to continue, esc to end
-
+                Are you ready to begin? """)
+            if in_str.lower() in AFFIRMATIVE:
+                break
+            elif in_str.lower() in NEGATIVE:
+                exit()
+        except ValueError:
+            pass
 
 def main():
     """Main method for the game loop."""
@@ -169,6 +177,9 @@ def main():
 
     #Display the introductory message
     game.intro()
+
+    #Display the tutorial screen before the game begins
+    tutorial()
 
 #Start the game loop
 main()
