@@ -7,14 +7,21 @@ class gamestate():
     """Represents a game of Lemonade Stand."""
     def __init__(self):
         """Constructor to initialize game state variables."""
+
+        #Which day is it?
+        self.current_day = 1
+        #How many days are being played before the game ends
+        self.day_limit = 12
+
+        #Cost of lemonade per glass, in cents
+        self.cost_lemonade = 0.5
+        #Cost of an advertising sign, in cents
+        self.cost_sign = 0.15
+
         #Number of players playing Lemonade Stand
         self.num_players = 1
         #Maximum number of players allowed in a single game
         self.player_limit = 30
-        #Cost of lemonade per glass, in cents
-        self.cost_lemonade = 0.5
-        #Const of an advertising sign, in cents
-        self.cost_sign = 0.15
         #Contains player objects
         self.players = []
 
@@ -68,9 +75,30 @@ class gamestate():
             except ValueError:
                 pass
 
-        #TODO: Have returning players reenter their data
+        #Initialize the list of players
+        self.init_players(self.num_players)
 
-def player():
+        #TODO: Have returning players reenter their data if continuing
+        if continuing:
+            print("Hi again! Welcome back to Lemonsville!")
+
+            #Prompt the user for which day to resume the game at
+            while True:
+                try:
+                    self.current_day = int(input("""
+                        Let's continue your last game from where
+                        you left it last time. Do you remember
+                        what day number it was? """))
+                    if self.current_day in range(1, self.day_limit+1):
+                        break
+                except ValueError:
+                    pass
+
+            #TODO: Update information for each player rejoining the game
+            for player in self.players:
+                break
+
+class player():
     """Represents a single player."""
     def __init__(self):
         """Constructor for a player."""
@@ -87,7 +115,6 @@ def player():
 
 def title():
     """Displays the title graphic."""
-    #TODO: This could look better, replace when convenient
     print("""
         L                                 L
         L                                 L
