@@ -4,6 +4,8 @@ class gamestate():
         """Constructor to initialize game state variables."""
         #Number of players playing Lemonade Stand
         self.num_players = 1
+        #Maximum number of players allowed in a single game
+        self.player_limit = 30
         #Cost of lemonade per glass, in cents
         self.cost_lemonade = 0.5
         #Const of an advertising sign, in cents
@@ -12,8 +14,11 @@ class gamestate():
         self.players = []
 
     def init_players(self, num_players):
-        """Add player objects to the list of players."""
-        #Append number of players to list
+        """Add player objects to the list of players.
+
+        Arguments:
+        num_players -- Number of new players to add to the state
+        """
         for x in range(num_players):
             self.players.append(player())
 
@@ -41,7 +46,8 @@ class gamestate():
             try:
                 self.num_players = int(input("""
                     How many people will be playing ==> """))
-                break
+                if self.num_players in range(1, self.player_limit+1):
+                    break
             except ValueError:
                 pass
 
