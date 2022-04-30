@@ -89,21 +89,21 @@ def title():
     """Displays the title graphic."""
     #TODO: This could look better, replace when convenient
     print("""
-        ;LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL;LLLLL
-        ;LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL;LLLLL
-        ;LLLL;;;;L;;;;;L;;;;L;;;;L;;;;L;;;;L;;;;
-        ;LLLL;LL;L;L;L;L;LL;L;LL;LLLL;L;LL;L;LL;
-        ;LLLL;;;;L;L;L;L;LL;L;LL;L;;;;L;LL;L;;;;
-        ;LLLL;LLLL;L;L;L;LL;L;LL;L;LL;L;LL;L;LLL
-        ;;;;L;;;;L;LLL;L;;;;L;LL;L;;;;L;;;;L;;;;
+        L                                 L
+        L                                 L
+        L    LLLL LLLLL LLLL LLLL LLLL LLLL LLLL
+        L    L  L L L L L  L L  L    L L  L L  L
+        L    LLLL L L L L  L L  L LLLL L  L LLLL
+        L    L    L L L L  L L  L L  L L  L L
+        LLLL LLLL L   L LLLL L  L LLLL LLLL LLLL
 
-        LLLLLLLL;;;;;LL;LLLLLLLLLLLLLLL;LLLLLLLL
-        LLLLLLLL;LLLLLL;LLLLLLLLLLLLLLL;LLLLLLLL
-        LLLLLLLL;LLLLL;;;L;;;;L;;;;L;;;;LLLLLLLL
-        LLLLLLLL;;;;;LL;LLLLL;L;LL;L;LL;LLLLLLLL
-        LLLLLLLLLLLL;LL;LL;;;;L;LL;L;LL;LLLLLLLL
-        LLLLLLLLLLLL;LL;LL;LL;L;LL;L;LL;LLLLLLLL
-        LLLLLLLL;;;;;LL;LL;;;;L;LL;L;;;;LLLLLLLL
+                SSSSS  S               S
+                S      S               S
+                S     SSS SSSS SSSS SSSS
+                SSSSS  S     S S  S S  S
+                    S  S  SSSS S  S S  S
+                    S  S  S  S S  S S  S
+                SSSSS  S  SSSS S  S SSSS
         """)
 
 def main():
