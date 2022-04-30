@@ -9,8 +9,14 @@ and providing ample documentation.
 Authors
 Ethan Hopkins
 
-Lemonade Stand Sequential Program Structure
+Lemonade Stand Sequential Program Description
 1. Introduction - Show the introductory graphics (or ASCII art)
 2. Variable Setup - Setup game state variables by player
 3. Start of the Game
 4. Display the Title Page
+    Is the player starting a new game, or continuing?
+    If new, how many people are playing the game?
+5. Display tutorial screen
+    Press space to continue or esc to end
+    If game is exited, prompt user whether they want to continue
+
