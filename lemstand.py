@@ -4,6 +4,9 @@
 #Describes acceptable affirmative and negative responses in the lower case
 AFFIRMATIVE = ["yes", "y"]
 NEGATIVE    = ["no", "n"]
+#Names of the days of the week
+WEEKDAYS    = ["sunday", "monday", "tuesday", "wednesday", "thursday",
+               "friday", "saturday"]
 
 class gamestate():
     """Represents a game of Lemonade Stand."""
