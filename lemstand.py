@@ -45,7 +45,7 @@ class gamestate():
         print("""
             Hi! Welcome to Lemonsville, California!
 
-            In this small town, tou are in charge of
+            In this small town, you are in charge of
             running your own lemonade stand. You can
             compete with as many other people as you
             wish, but how much profit you make is up
@@ -91,7 +91,7 @@ class gamestate():
             #Prompt the user for which day to resume the game at
             while True:
                 try:
-                    self.current_day = int(input("""
+                    self.current_day = 1+int(input("""
                         Let's continue your last game from where
                         you left it last time. Do you remember
                         what day number it was? """))
@@ -100,9 +100,26 @@ class gamestate():
                 except ValueError:
                     pass
 
+            #Remind the player what the starting day is
+            print("Okay -- we'll start with day no. " + str(self.current_day))
+
             #TODO: Update information for each player rejoining the game
             for player in self.players:
-                break
+                #TODO: How much money did the player have, if less than 2.00 give them 2.00
+                print("""Player No. 1, how much money (assets)
+                    did you have?""")
+
+        #Ask if players are ready to begin
+        #TODO: Write a function for yes/no questions
+        while True:
+            try:
+                in_str = input("...ready to continue? ")
+                if in_str in AFFIRMATIVE:
+                    break
+                elif in_str in NEGATIVE:
+                    exit()
+            except ValueError:
+                pass
 
 class player():
     """Represents a single player."""
