@@ -24,4 +24,21 @@ Lemonade Stand Sequential Program Description
 5. Display tutorial screen
     Press space to continue or esc to end
     If game is exited, prompt user whether they want to continue
+6. Weather report display graphic
+7. Enter the main game loop
+    Each player makes daily decisions
+    How many glasses of lemonade to make?
+    How many advertising signs to make?
+    What price to charge for lemonade?
+    Would the player like to change anything?
+8. Daily financial report
+    Day and stand number
+    Gross income made
+        Number of glasses sold
+        Price set by the player per glass
+    Total expenses for the day
+        Number of glasses made
+        Number of signs made
+    Profit
+    Total assets with profit
 
