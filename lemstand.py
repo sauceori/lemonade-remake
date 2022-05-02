@@ -161,7 +161,31 @@ def tutorial():
                 your cost to make lemonade is two cents
                 a glass (this may change in the future).
 
-                Are you ready to begin? """)
+                 Continue? """)
+            if in_str.lower() in AFFIRMATIVE:
+                break
+            elif in_str.lower() in NEGATIVE:
+                exit()
+        except ValueError:
+            pass
+
+    while True:
+        try:
+            in_str = input("""
+                Your expenses are the sum of the cost of
+                the lemonade and the cost of the signs.
+
+                Your profits are the difference between
+                the income from sales and your expenses.
+
+                The number of glasses you sell each day
+                depends on the price you charge, and on
+                the number of advertising signs you use.
+
+                Keep track of your assets, because you
+                can't spend more money than you have!
+
+                 Are you ready to begin? """)
             if in_str.lower() in AFFIRMATIVE:
                 break
             elif in_str.lower() in NEGATIVE:
