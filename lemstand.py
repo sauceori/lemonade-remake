@@ -208,5 +208,14 @@ def main():
     #Display the tutorial screen before the game begins
     tutorial()
 
+    #Enter the core of the game loop
+    for day in range(1, game.day_limit+1):
+        #TODO: Weather report
+
+        #TODO: Each player makes decisions for their stand
+
+        #TODO: Each player is shown a daily financial report
+        pass
+
 #Start the game loop
 main()
