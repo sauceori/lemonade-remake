@@ -106,8 +106,8 @@ class gamestate():
             #TODO: Update information for each player rejoining the game
             for player in self.players:
                 #TODO: How much money did the player have, if less than 2.00 give them 2.00
-                print("""Player No. 1, how much money (assets)
-                    did you have?""")
+                print("""Player No. """ + str(self.players.index(player)+1) +
+                      """, how much money (assets) did you have?""")
 
         #Ask if players are ready to begin
         #TODO: Write a function for yes/no questions
