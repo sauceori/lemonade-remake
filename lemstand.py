@@ -126,7 +126,7 @@ class gamestate():
                         in_val = float(input("Player No. " + str(self.players.index(player)+1) +
                                              ", how much money (assets) did you have?"))
                         if player.assets < 2.00:
-                            print("That's okay, you can have 2.00 to work with.")
+                            print("O.K. - we'll start you out with $2.00")
                             player.assets = 2.00
                             break
                         else:
