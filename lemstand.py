@@ -8,6 +8,21 @@ NEGATIVE    = ["no", "n"]
 WEEKDAYS    = ["sunday", "monday", "tuesday", "wednesday", "thursday",
                "friday", "saturday"]
 
+class player():
+    """Represents a single player."""
+    def __init__(self):
+        """Constructor for a player."""
+        #Cash on hand, in dollars
+        self.assets = 0
+        #True if stand ruined by Thunderstorm, else False
+        self.storm_ruined = False
+        #Number of glasses lemonade made by the player
+        self.glasses_made = 0
+        #Price the player is charging for their lemonade, in dollars
+        self.price_charged = 0
+        #Number of signs made by the player
+        self.num_signs = 0
+
 class gamestate():
     """Represents a game of Lemonade Stand."""
     def __init__(self):
@@ -103,11 +118,21 @@ class gamestate():
             #Remind the player what the starting day is
             print("Okay -- we'll start with day no. " + str(self.current_day))
 
-            #TODO: Update information for each player rejoining the game
+            #Update information for each player rejoining the game
             for player in self.players:
-                #TODO: How much money did the player have, if less than 2.00 give them 2.00
-                print("""Player No. """ + str(self.players.index(player)+1) +
-                      """, how much money (assets) did you have?""")
+                #How much money did the player have, if less than 2.00 give them 2.00
+                while True:
+                    try:
+                        in_val = float(input("Player No. " + str(self.players.index(player)+1) +
+                                             ", how much money (assets) did you have?"))
+                        if player.assets < 2.00:
+                            print("That's okay, you can have 2.00 to work with.")
+                            player.assets = 2.00
+                            break
+                        else:
+                            break
+                    except ValueError:
+                        pass
 
         #Ask if players are ready to begin
         #TODO: Write a function for yes/no questions
@@ -120,21 +145,6 @@ class gamestate():
                     exit()
             except ValueError:
                 pass
-
-class player():
-    """Represents a single player."""
-    def __init__(self):
-        """Constructor for a player."""
-        #Cash on hand, in dollars
-        self.assets = 0
-        #True if stand ruined by Thunderstorm, else False
-        self.storm_ruined = False
-        #Number of glasses lemonade made by the player
-        self.glasses_made = 0
-        #Price the player is charging for their lemonade, in dollars
-        self.price_charged = 0
-        #Number of signs made by the player
-        self.num_signs = 0
 
 def title():
     """Displays the title graphic."""
