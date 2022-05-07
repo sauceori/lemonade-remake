@@ -69,7 +69,7 @@ def intro(game):
         try:
             game.set_num_players(int(input("""
                 How many people will be playing ==> """)))
-            if game.get_num_players() in range(1, self.player_limit+1):
+            if game.get_num_players() in range(1, game.get_player_limit()+1):
                 break
         except ValueError:
             pass
@@ -88,13 +88,13 @@ def intro(game):
                     Let's continue your last game from where
                     you left it last time. Do you remember
                     what day number it was? """)))
-                if game.get_current_day in range(1, game.get_day_limit()+1):
+                if game.get_current_day() in range(1, game.get_day_limit()+1):
                     break
             except ValueError:
                 pass
 
         #Remind the player what the starting day is
-        print("Okay -- we'll start with day no. " + str(self.current_day))
+        print("Okay -- we'll start with day no. " + str(game.get_current_day()))
 
         #Update information for each player rejoining the game
         for player in game.get_players():
@@ -189,7 +189,7 @@ def main():
     game = gamestate()
 
     #Display the introductory message
-    game.intro()
+    intro(game)
 
     #Display the tutorial screen before the game begins
     tutorial()

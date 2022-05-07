@@ -1,5 +1,10 @@
 """Contains a class to be instantiated as gamestate objects."""
 
+#Library imports
+
+#Custom module imports
+from player import player
+
 class gamestate():
     """Represents a game of Lemonade Stand."""
     def __init__(self):
@@ -82,4 +87,4 @@ class gamestate():
         num_players -- Number of new players to add to the state
         """
         for x in range(num_players):
-            self.players.append(player())
+            self._players.append(player())
