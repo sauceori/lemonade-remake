@@ -32,7 +32,7 @@ def title():
                 SSSSS  S  SSSS S  S SSSS
         """)
 
-def intro(self):
+def intro(game):
     """Displays introductory message, choose new or resume game."""
     #TODO: Big function, should probably be broken up
     print("""
@@ -67,15 +67,15 @@ def intro(self):
     #How many players will be playing?
     while True:
         try:
-            self.num_players = int(input("""
-                How many people will be playing ==> """))
-            if self.num_players in range(1, self.player_limit+1):
+            game.set_num_players(int(input("""
+                How many people will be playing ==> """)))
+            if game.get_num_players() in range(1, self.player_limit+1):
                 break
         except ValueError:
             pass
 
     #Initialize the list of players
-    self.init_players(self.num_players)
+    game.init_players(game.get_num_players())
 
     #TODO: Have returning players reenter their data if continuing
     if continuing:
@@ -84,11 +84,11 @@ def intro(self):
         #Prompt the user for which day to resume the game at
         while True:
             try:
-                self.current_day = 1+int(input("""
+                game.set_current_day(1+int(input("""
                     Let's continue your last game from where
                     you left it last time. Do you remember
-                    what day number it was? """))
-                if self.current_day in range(1, self.day_limit+1):
+                    what day number it was? """)))
+                if game.get_current_day in range(1, game.get_day_limit()+1):
                     break
             except ValueError:
                 pass
@@ -97,11 +97,11 @@ def intro(self):
         print("Okay -- we'll start with day no. " + str(self.current_day))
 
         #Update information for each player rejoining the game
-        for player in self.players:
+        for player in game.get_players():
             #How much money did the player have, if less than 2.00 give them 2.00
             while True:
                 try:
-                    in_val = float(input("Player No. " + str(self.players.index(player)+1) +
+                    in_val = float(input("Player No. " + str(game.get_players().index(player)+1) +
                                             ", how much money (assets) did you have? "))
                     player.set_assets(in_val)
                     if player.get_assets() < 2.00:
