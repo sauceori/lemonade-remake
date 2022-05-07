@@ -1,5 +1,7 @@
-#Imports
-import player
+#Library imports
+
+#Custom module imports
+from player import player
 
 """Global constants."""
 #Describes acceptable affirmative and negative responses in the lower case
@@ -110,10 +112,11 @@ class gamestate():
                 while True:
                     try:
                         in_val = float(input("Player No. " + str(self.players.index(player)+1) +
-                                             ", how much money (assets) did you have?"))
-                        if player.assets < 2.00:
+                                             ", how much money (assets) did you have? "))
+                        player.set_assets(in_val)
+                        if player.get_assets() < 2.00:
                             print("O.K. - we'll start you out with $2.00")
-                            player.assets = 2.00
+                            player.set_assets(2.00)
                             break
                         else:
                             break
