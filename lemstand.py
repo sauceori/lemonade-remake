@@ -179,6 +179,12 @@ def tutorial():
         except ValueError:
             pass
 
+def forecast():
+    """Notify the players of the day's weather."""
+
+    #Random factor for determining type of weather
+
+
 def main():
     """Main method for the game loop."""
 
@@ -197,6 +203,7 @@ def main():
     #Enter the core of the game loop
     for day in range(1, game.day_limit+1):
         #TODO: Weather report
+        forecast()
 
         #TODO: Each player makes decisions for their stand
 
