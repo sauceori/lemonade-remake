@@ -1,4 +1,5 @@
 #Library imports
+import random
 
 #Custom module imports
 from player import player
@@ -11,6 +12,10 @@ NEGATIVE    = ["no", "n"]
 #Names of the days of the week
 WEEKDAYS    = ["sunday", "monday", "tuesday", "wednesday", "thursday",
                "friday", "saturday"]
+
+"""Other globals."""
+#Stores the most recently-generated number by rnd
+rnd_result = 0.0
 
 def title():
     """Displays the title graphic."""
@@ -179,11 +184,28 @@ def tutorial():
         except ValueError:
             pass
 
+def rnd(aexpr):
+    """Emulates the functionality of the rnd function is Applesoft Basic."""
+    #If aexpr is positive, return a rand from 0 to 0.999r
+    if aexpr >= 0:
+        rnd_result = random.random()
+        return rnd_result
+    #If aexpr is zero repeat the last rand result
+    elif aexpr == 0:
+        return rnd_result
+    #If aexpr is negative, reseed the generator
+    else:
+        random.seed()
+
 def forecast():
     """Notify the players of the day's weather."""
 
     #Random factor for determining type of weather
-
+    #   2   sunny
+    #   5   thunderstorms
+    #   7   hot & dry
+    #   10  cloudy
+    sky_color = rnd(1)
 
 def main():
     """Main method for the game loop."""
