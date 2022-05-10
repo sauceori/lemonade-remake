@@ -197,7 +197,7 @@ def rnd(aexpr):
     else:
         random.seed()
 
-def forecast():
+def forecast(game):
     """Notify the players of the day's weather."""
 
     #Random factor for determining type of weather
@@ -206,6 +206,21 @@ def forecast():
     #   7   hot & dry
     #   10  cloudy
     sky_color = rnd(1)
+
+    if sky_color < 0.6:
+        sky_color = 2
+    elif sky_color < 0.8:
+        sky_color = 10
+    else:
+        sky_color = 7
+
+    #Weather should always be clear before day 3
+    if game.get_current_day < 3:
+        sky_color = 2
+
+    #Enters subroutine 15000 here
+
+    #Call a function to print an ASCII weather graphic
 
 def main():
     """Main method for the game loop."""
