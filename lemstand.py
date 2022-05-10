@@ -218,9 +218,18 @@ def forecast(game):
     if game.get_current_day < 3:
         sky_color = 2
 
-    #Enters subroutine 15000 here
-
-    #Call a function to print an ASCII weather graphic
+    #Notify the player of the weather
+    print("""LEMONSVILLE WEATHER REPORT""")
+    #TODO: Call a function to print an ASCII weather graphic
+    if sky_color == 2:
+        print("""SUNNY""")
+    elif sky_color == 5:
+        print("""THUNDERSTORMS!""")
+        #TODO: Other stuff here?
+    elif sky_color == 7:
+        print("""HOT & DRY""")
+    elif sky_color == 10:
+        print("""CLOUDY""")
 
 def main():
     """Main method for the game loop."""
