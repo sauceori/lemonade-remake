@@ -207,10 +207,17 @@ def forecast(game):
     #   10  cloudy
     sky_color = rnd(1)
 
+    #3 in 5 chance of a sunny day
     if sky_color < 0.6:
         sky_color = 2
+    #1 in 5 chance of a cloudy day
     elif sky_color < 0.8:
-        sky_color = 10
+        #If it would otherwise be a cloudy day, there is a 1 in 4 change of thunderstorms
+        if rnd(1) < 0.25:
+            sky_color = 5
+        else:
+            sky_color = 10
+    #1 in 5 chance of a hot, dry day
     else:
         sky_color = 7
 
@@ -225,11 +232,13 @@ def forecast(game):
         print("""SUNNY""")
     elif sky_color == 5:
         print("""THUNDERSTORMS!""")
-        #TODO: Other stuff here?
     elif sky_color == 7:
         print("""HOT & DRY""")
     elif sky_color == 10:
         print("""CLOUDY""")
+
+    #Return the weather value
+    return sky_color
 
 def main():
     """Main method for the game loop."""
@@ -249,7 +258,7 @@ def main():
     #Enter the core of the game loop
     for day in range(1, game.day_limit+1):
         #TODO: Weather report
-        forecast()
+        sky_color = forecast(game)
 
         #TODO: Each player makes decisions for their stand
 
