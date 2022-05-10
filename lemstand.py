@@ -256,7 +256,7 @@ def main():
     tutorial()
 
     #Enter the core of the game loop
-    for day in range(1, game.day_limit+1):
+    for day in range(1, game.get_day_limit()+1):
         #TODO: Weather report
         sky_color = forecast(game)
 
