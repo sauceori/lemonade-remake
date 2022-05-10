@@ -222,7 +222,7 @@ def forecast(game):
         sky_color = 7
 
     #Weather should always be clear before day 3
-    if game.get_current_day < 3:
+    if game.get_current_day() < 3:
         sky_color = 2
 
     #Notify the player of the weather
