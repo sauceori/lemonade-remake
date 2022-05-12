@@ -1,5 +1,4 @@
 #Library imports
-import random
 
 #Custom module imports
 from player import player
@@ -184,62 +183,6 @@ def tutorial():
         except ValueError:
             pass
 
-def rnd(aexpr):
-    """Emulates the functionality of the rnd function is Applesoft Basic."""
-    #If aexpr is positive, return a rand from 0 to 0.999r
-    if aexpr >= 0:
-        rnd_result = random.random()
-        return rnd_result
-    #If aexpr is zero repeat the last rand result
-    elif aexpr == 0:
-        return rnd_result
-    #If aexpr is negative, reseed the generator
-    else:
-        random.seed()
-
-def forecast(game):
-    """Notify the players of the day's weather."""
-
-    #Random factor for determining type of weather
-    #   2   sunny
-    #   5   thunderstorms
-    #   7   hot & dry
-    #   10  cloudy
-    sky_color = rnd(1)
-
-    #3 in 5 chance of a sunny day
-    if sky_color < 0.6:
-        sky_color = 2
-    #1 in 5 chance of a cloudy day
-    elif sky_color < 0.8:
-        #If it would otherwise be a cloudy day, there is a 1 in 4 change of thunderstorms
-        if rnd(1) < 0.25:
-            sky_color = 5
-        else:
-            sky_color = 10
-    #1 in 5 chance of a hot, dry day
-    else:
-        sky_color = 7
-
-    #Weather should always be clear before day 3
-    if game.get_current_day() < 3:
-        sky_color = 2
-
-    #Notify the player of the weather
-    print("""LEMONSVILLE WEATHER REPORT""")
-    #TODO: Call a function to print an ASCII weather graphic
-    if sky_color == 2:
-        print("""SUNNY""")
-    elif sky_color == 5:
-        print("""THUNDERSTORMS!""")
-    elif sky_color == 7:
-        print("""HOT & DRY""")
-    elif sky_color == 10:
-        print("""CLOUDY""")
-
-    #Return the weather value
-    return sky_color
-
 def main():
     """Main method for the game loop."""
 
@@ -258,7 +201,7 @@ def main():
     #Enter the core of the game loop
     for day in range(1, game.get_day_limit()+1):
         #TODO: Weather report
-        sky_color = forecast(game)
+        game.forecast()
 
         #TODO: Each player makes decisions for their stand
 
