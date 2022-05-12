@@ -153,13 +153,13 @@ class gamestate():
             self._sky_color = 2
 
         #Notify the player of the weather
-        print("""LEMONSVILLE WEATHER REPORT""")
+        print("\nLEMONSVILLE WEATHER REPORT")
         #TODO: Call a function to print an ASCII weather graphic
         if self._sky_color == 2:
-            print("""SUNNY""")
+            print("SUNNY")
         elif self._sky_color == 5:
-            print("""THUNDERSTORMS!""")
+            print("THUNDERSTORMS!")
         elif self._sky_color == 7:
-            print("""HOT & DRY""")
+            print("HOT & DRY")
         elif self._sky_color == 10:
-            print("""CLOUDY""")
+            print("CLOUDY")

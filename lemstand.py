@@ -17,37 +17,34 @@ WEEKDAYS    = ["sunday", "monday", "tuesday", "wednesday", "thursday",
 def title():
     """Displays the title graphic."""
     print("""
-        L                                 L
-        L                                 L
-        L    LLLL LLLLL LLLL LLLL LLLL LLLL LLLL
-        L    L  L L L L L  L L  L    L L  L L  L
-        L    LLLL L L L L  L L  L LLLL L  L LLLL
-        L    L    L L L L  L L  L L  L L  L L
-        LLLL LLLL L   L LLLL L  L LLLL LLLL LLLL
+L                                 L
+L                                 L
+L    LLLL LLLLL LLLL LLLL LLLL LLLL LLLL
+L    L  L L L L L  L L  L    L L  L L  L
+L    LLLL L L L L  L L  L LLLL L  L LLLL
+L    L    L L L L  L L  L L  L L  L L
+LLLL LLLL L   L LLLL L  L LLLL LLLL LLLL
 
-                SSSSS  S               S
-                S      S               S
-                S     SSS SSSS SSSS SSSS
-                SSSSS  S     S S  S S  S
-                    S  S  SSSS S  S S  S
-                    S  S  S  S S  S S  S
-                SSSSS  S  SSSS S  S SSSS
+        SSSSS  S               S
+        S      S               S
+        S     SSS SSSS SSSS SSSS
+        SSSSS  S     S S  S S  S
+            S  S  SSSS S  S S  S
+            S  S  S  S S  S S  S
+        SSSSS  S  SSSS S  S SSSS
         """)
 
 def intro(game):
     """Displays introductory message, choose new or resume game."""
     #TODO: Big function, should probably be broken up
-    print("""
-        Hi! Welcome to Lemonsville, California!
-
-        In this small town, you are in charge of
-        running your own lemonade stand. You can
-        compete with as many other people as you
-        wish, but how much profit you make is up
-        to you (the other stands' sales will not
-        affect your business in any way). If you
-        make the most money, you're the winner!!
-        """)
+    print("\nHi! Welcome to Lemonsville, California!\n"
+        "\nIn this small town, you are in charge of"
+        "\nrunning your own lemonade stand. You can"
+        "\ncompete with as many other people as you"
+        "\nwish, but how much profit you make is up"
+        "\nto you (the other stands' sales will not"
+        "\naffect your business in any way). If you"
+        "\nmake the most money, you're the winner!!")
 
     #Becomes true if the game is being continued
     continuing = False
@@ -55,9 +52,8 @@ def intro(game):
     #Is the player starting a new game, or continuing?
     while True:
         try:
-            in_str = input("""
-                Are you starting a new game? (yes or no)
-                Type your answer and hit return ==> """)
+            in_str = input("\nAre you starting a new game? (yes or no)\n"
+                "Type your answer and hit return ==> ")
             if in_str.lower() in NEGATIVE:
                 continuing = True
                 break
@@ -69,8 +65,7 @@ def intro(game):
     #How many players will be playing?
     while True:
         try:
-            game.set_num_players(int(input("""
-                How many people will be playing ==> """)))
+            game.set_num_players(int(input("\nHow many people will be playing ==> ")))
             if game.get_num_players() in range(1, game.get_player_limit()+1):
                 break
         except ValueError:
@@ -81,29 +76,28 @@ def intro(game):
 
     #TODO: Have returning players reenter their data if continuing
     if continuing:
-        print("Hi again! Welcome back to Lemonsville!")
+        print("\nHi again! Welcome back to Lemonsville!")
 
         #Prompt the user for which day to resume the game at
         while True:
             try:
-                game.set_current_day(1+int(input("""
-                    Let's continue your last game from where
-                    you left it last time. Do you remember
-                    what day number it was? """)))
+                game.set_current_day(1+int(input("\nLet's continue your last game from where"
+                    "\nyou left it last time. Do you remember"
+                    "\nwhat day number it was? ")))
                 if game.get_current_day() in range(1, game.get_day_limit()+1):
                     break
             except ValueError:
                 pass
 
         #Remind the player what the starting day is
-        print("Okay -- we'll start with day no. " + str(game.get_current_day()))
+        print("\nOkay -- we'll start with day no. " + str(game.get_current_day()))
 
         #Update information for each player rejoining the game
         for player in game.get_players():
             #How much money did the player have, if less than 2.00 give them 2.00
             while True:
                 try:
-                    in_val = float(input("Player No. " + str(game.get_players().index(player)+1) +
+                    in_val = float(input("\nPlayer No. " + str(game.get_players().index(player)+1) +
                                             ", how much money (assets) did you have? "))
                     player.set_assets(in_val)
                     if player.get_assets() < 2.00:
@@ -119,7 +113,7 @@ def intro(game):
     #TODO: Write a function for yes/no questions
     while True:
         try:
-            in_str = input("...ready to continue? ")
+            in_str = input("\n...ready to continue? ")
             if in_str in AFFIRMATIVE:
                 break
             elif in_str in NEGATIVE:
@@ -132,24 +126,18 @@ def tutorial():
     #Yes to continue, no to end
     while True:
         try:
-            in_str = input("""
-                To manage your lemonade stand, you will
-                need to make these decisions every day:
-
-                1. How many glasses of lemonade to make
-                (only one batch is made each morning)
-
-                2. How Many Advertising Signs to make
-                (the signs cost fifteen cents each)
-
-                3. What price to charge for each glass
-
-                You will begin with $2.00 cash (assets).
-                Because your mother gave you some sugar,
-                your cost to make lemonade is two cents
-                a glass (this may change in the future).
-
-                 Continue? """)
+            in_str = input("\nTo manage your lemonade stand, you will"
+                "\nneed to make these decisions every day:\n"
+                "\n1. How many glasses of lemonade to make"
+                "\n(only one batch is made each morning)\n"
+                "\n2. How Many Advertising Signs to make"
+                "\n(the signs cost fifteen cents each)\n"
+                "\n3. What price to charge for each glass\n"
+                "\nYou will begin with $2.00 cash (assets)."
+                "\nBecause your mother gave you some sugar,"
+                "\nyour cost to make lemonade is two cents"
+                "\na glass (this may change in the future).\n"
+                "\n Continue? """)
             if in_str.lower() in AFFIRMATIVE:
                 break
             elif in_str.lower() in NEGATIVE:
@@ -159,21 +147,16 @@ def tutorial():
 
     while True:
         try:
-            in_str = input("""
-                Your expenses are the sum of the cost of
-                the lemonade and the cost of the signs.
-
-                Your profits are the difference between
-                the income from sales and your expenses.
-
-                The number of glasses you sell each day
-                depends on the price you charge, and on
-                the number of advertising signs you use.
-
-                Keep track of your assets, because you
-                can't spend more money than you have!
-
-                 Are you ready to begin? """)
+            in_str = input("\nYour expenses are the sum of the cost of"
+                "\nthe lemonade and the cost of the signs.\n"
+                "\nYour profits are the difference between"
+                "\nthe income from sales and your expenses.\n"
+                "\nThe number of glasses you sell each day"
+                "\ndepends on the price you charge, and on"
+                "\nthe number of advertising signs you use.\n"
+                "\nKeep track of your assets, because you"
+                "\ncan't spend more money than you have!\n"
+                "\n Are you ready to begin? ")
             if in_str.lower() in AFFIRMATIVE:
                 break
             elif in_str.lower() in NEGATIVE:
