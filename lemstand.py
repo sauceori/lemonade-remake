@@ -13,8 +13,6 @@ WEEKDAYS    = ["sunday", "monday", "tuesday", "wednesday", "thursday",
                "friday", "saturday"]
 
 """Other globals."""
-#Stores the most recently-generated number by rnd
-rnd_result = 0.0
 
 def title():
     """Displays the title graphic."""

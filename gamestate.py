@@ -6,6 +6,10 @@ import random
 #Custom module imports
 from player import player
 
+"""Globals"""
+#Stores the most recently-generated number by rnd
+rnd_result = 0.0
+
 class gamestate():
     """Represents a game of Lemonade Stand."""
     def __init__(self):
